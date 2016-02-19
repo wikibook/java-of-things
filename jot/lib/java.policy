@@ -1,0 +1,4 @@
+grant {
+        permission jdk.dio.DeviceMgmtPermission "*:*", "open";
+        permission jdk.dio.uart.UARTPermission "*:*", "open";
+};

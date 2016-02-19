@@ -1,0 +1,84 @@
+<html  ng-app="mqttConsoleApp">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="mqttconsole.css"> 
+        <script type="text/javascript" 
+                src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js">
+        </script>
+        <script type="text/javascript" src="mqttws31.js"></script>
+        <script type="text/javascript" src="mqttconsole.js"></script>
+        <title>MQTT Console</title>
+    </head>
+    <body ng-controller="mqttConsoleCtrl">
+        <!-- UI Object -->
+        <fieldset>
+            <legend>MQTT Console</legend>
+            <div class="form_table">
+                <table border="1" cellspacing="0" summary="MQTT Console">
+                    <tbody>
+                        <tr>
+                            <th scope="row">Host</th>
+                            <td>
+                                <div class="item">
+                                    <input type="text" name="host" ng-model="mqtt.host" class="i_text" required>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Port</th>
+                            <td>
+                                <div class="item">
+                                    <input type="text"  name="port" ng-model="mqtt.port" class="i_text">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">ID</th>
+                            <td>
+                                <div class="item">
+                                    <input type="text" name="clientId" ng-model="mqtt.clientId" class="i_text">
+                                </div>
+                            </td>
+                        </tr>		
+                        <tr>
+                            <th scope="row">Thing's IP</th>
+                            <td>
+                                <div class="item">				
+                                    <input type="text" name="clientId" ng-model="mqtt.thingIp" class="i_text" >
+                                    <button type="button" ng-click="connect()" class="i_btn"><span>{{connectState}}</span></button>
+                                </div>
+                            </td>
+                        </tr>
+                    <th scope="row"></th>
+                    <td>
+                        <div class="item">
+                            <textarea name="result" ng-model="result"  readOnly="readOnly"  cols="50" rows="5" class="i_text"></textarea>
+                        </div>
+                    </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Command</th>
+                        <td>
+                            <div class="item">
+                                <input type="text" id="command" name="command" ng-model="command" class="i_text" style="width:260px">
+                                <button type="button" ng-click="send()" ng-disabled="!client.connected" class="i_btn"><span>Send</span></button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                    <tr>
+                        <th scope="row">Broadcast</th>
+                        <td>
+                            <div class="item">
+                                <textarea name="cov" ng-model="covs" readOnly="readOnly" cols="50" rows="5" id="temp_textarea" class="i_text"></textarea>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </fieldset>
+        <!-- //UI Object -->
+    </body> 
+</html>

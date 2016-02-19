@@ -1,0 +1,10 @@
+7 = deviceType: gpio.GPIOPin, pinNumber:7, name:GPIO7, mode:4, direction:1, trigger:0, predefined:true
+8 = deviceType: gpio.GPIOPin, pinNumber:8, name:GPIO8, mode:4, direction:1, trigger:0, predefined:true
+
+18 = deviceType: gpio.GPIOPin, pinNumber:18, name:GPIO8, mode:4, direction:1, trigger:0, predefined:true
+23 = deviceType: gpio.GPIOPin, pinNumber:23, name:GPIO23, predefined:true
+24 = deviceType: gpio.GPIOPin, pinNumber:24, name:GPIO24, predefined:true
+
+300 = deviceType: spibus.SPIDevice, name:SPI0.0, deviceNumber:0, address:0, csActive:1, wordLength:8, clockFrequency:500000, clockMode:1, bitOrdering:1, predefined:true
+
+gpio.GPIOPin = initValue:0, controllerNumber:0, direction:0, mode:2, trigger:3, predefined:true
