@@ -61,15 +61,15 @@ public class UARTConsole implements Observer{
             if(arg == null){
                 write("Changed of value (" + point.getName() + "): "
                     + point.getPresentValue());
-            }
-            
-            switch(arg.toString()){
-                case "name" : 
-                    write("Changed name (" + point.getName() + "): "
-                        + point.getName());
-                    break;
-                default :
-                    write("Changed (" + point.getName() + "): " + arg);
+            }else{
+                switch(arg.toString()){
+                    case "name" : 
+                        write("Changed name (" + point.getName() + "): "
+                            + point.getName());
+                        break;
+                    default :
+                        write("Changed (" + point.getName() + "): " + arg);
+                }
             }
         }
     }

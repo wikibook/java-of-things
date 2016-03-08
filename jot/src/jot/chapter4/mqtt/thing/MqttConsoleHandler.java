@@ -1,5 +1,6 @@
 package jot.chapter4.mqtt.thing;
 
+import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.net.SocketException;
@@ -166,19 +167,20 @@ public class MqttConsoleHandler implements Observer {
         Enumeration<NetworkInterface> networkList = 
                 NetworkInterface.getNetworkInterfaces();
         NetworkInterface ni;
+        InetAddress address;
         while (networkList.hasMoreElements()) {
             ni = networkList.nextElement();
             if (!ni.getName().equals("eth0")) {
                 continue;
             }
+            
             Enumeration<InetAddress> addresses = ni.getInetAddresses();
             while (addresses.hasMoreElements()) {
-                ipAddress = addresses.nextElement().getHostAddress();
-                break;
-            }
-
-            if (ipAddress != null) {
-                break;
+                address = addresses.nextElement();
+                if(address instanceof Inet4Address){
+                    ipAddress = address.getHostAddress();
+                    break;
+                }
             }
         }
 

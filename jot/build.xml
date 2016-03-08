@@ -74,5 +74,6 @@
     <target name="-post-compile">
         <copy file="lib/dio.properties-raspberrypi" todir="${dist.dir}/lib"/>
         <copy file="lib/java.policy" todir="${dist.dir}/lib"/>
+        <copy file="lib/libdio.so" todir="${dist.dir}/lib"/>
     </target>
 </project>

@@ -76,6 +76,7 @@ public class MCP4911OutputPoint extends OutputPoint {
     }
 
     private boolean writeAnalog(int value) {
+        int originalValue = value;
         value = value << 2;
         int data = CMD_BIT | value;
         
@@ -88,7 +89,7 @@ public class MCP4911OutputPoint extends OutputPoint {
             spi.write(out);
             ssPin.setValue(true);
             
-            presentValue.set(value);
+            presentValue.set(originalValue);
             return true;
         } catch (IOException ex) {
             Logger.getLogger(MCP4911OutputPoint.class.getName())

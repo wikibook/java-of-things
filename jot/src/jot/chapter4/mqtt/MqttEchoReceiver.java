@@ -1,5 +1,6 @@
 package jot.chapter4.mqtt;
 
+import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.net.SocketException;
@@ -109,6 +110,7 @@ public class MqttEchoReceiver {
         Enumeration<NetworkInterface> networkList = 
                 NetworkInterface.getNetworkInterfaces();
         NetworkInterface ni;
+        InetAddress address;
         while (networkList.hasMoreElements()) {
             ni = networkList.nextElement();
             if (!ni.getName().equals("eth0")) {
@@ -117,8 +119,11 @@ public class MqttEchoReceiver {
             Enumeration<InetAddress> addresses = 
                     ni.getInetAddresses();
             while (addresses.hasMoreElements()) {
-                ipAddress = addresses.nextElement().getHostAddress();
-                break;
+                address = addresses.nextElement();
+                if(address instanceof Inet4Address){
+                    ipAddress = address.getHostAddress();
+                    break;
+                }            
             }
 
             if (ipAddress != null) {
